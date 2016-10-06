@@ -103,7 +103,7 @@ UIInterface
       <h>50</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
-CacheStorageinterface
+CacheStorageInterface
 </panel_attributes>
     <additional_attributes/>
   </element>
