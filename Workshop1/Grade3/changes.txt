@@ -1,0 +1,9 @@
+The main rework was done to the Finance part which was extended with
+* Receipt
+* Payment including the 4 specific types Credit Card, SMS, Paper Invoice, Direct Payment (where wording Paper Invoice is used instead of Invoice not to confuse the Invoice with the Payment type Invoice).
+* Invoice reminder
+As well as the new Actor Treasurer
+
+- The invoice is built up of a Fees, a Fee can be either a Fixed price or a Variable price.
+- The Invoice Reminder needs to know of both Member and the Status of the current Invoice to be able to update it with a penalty fee as well as trigger the reminder.
+- In a similar way Treasurer needs to know of both Invoice and Payment method to be able to check with an external system it it has been paid and hence update the status.
