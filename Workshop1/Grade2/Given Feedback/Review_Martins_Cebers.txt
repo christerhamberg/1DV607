@@ -1,0 +1,75 @@
+Review of Martins Cebers' (mc222nk) Domain Model
+https://drive.google.com/file/d/0B8G53_VFBdHZY0hucW1OUzlhOWM/view?usp=sharing
+
+Good things and strengths:
+- The Model is split into 3 parts easier to read and follow. 
+
+- Grouped according to the requirements. Authentication, "Admin", Calendar
+
+- The Associations are well thought much better than mine. It for sure gives value to the developer.
+
+Improvements:
+
+- I would personally change the word System to something else as it is in my opinion a bit too much SW associated. 
+  Hence Boat Management System and Authentication system is something that I would check, and possibly change.
+  
+- Finances (Fees) are described as a major problem area in the general text description but not really described
+  in the Domain Model. I would add something about it in connection with the Boat Mgmt System.
+  
+- Level of details for the more complex requirements in the area of Boat administration could be improved.
+  As an example Boat, BoatType and BoatImage is clearly described but the complicated tasks are "hidden" under
+  the Boat Mgmt System. If this part is improved it would give me as a designer more information on the requirements.
+  
+- Description of Events could be improved as per Larman chapter 9.13 When to Model with 'Description' Classes? [1]
+
+
+Faults or incorrect interpretations on my behalf
+
+- Authentication under Role I assumed that Member, Treasurer and Secretary are generalizations of Role and in that  
+  case the arrow type is incorrect. See type 9 in UML Class Diagrams [2].
+ 
+- Authentication under User the 0..1 should probably be 0..* as Role can be connected to many different users. 
+  Otherwise the maximum number of users are 3.
+  
+- Boat Admin, Even though I understand that it is assumed that 1 berth is allocated when needed, should the number
+  be 0..1 to indicate empty Berths?
+  
+- Use case 10 is missing (Secretary has no associations at all)
+
+
+Understandability/Readability:
+
+- The strong point are the associations and the naming of them. That adds value and I would for sure as a developer
+  be able to use the Model. 
+
+- The area of improvement is more details in the complex tasks like "what is Boat Management System doing...". 
+  Improvements has to be made in this area and update fee handling as well.
+
+- As a Secretary I have one task to Approve Proposal in the model hence a bit more details needs to be added
+  so I as a secretary understand what tasks I need to do.
+ 
+- Overall: Good association naming, and a bit more details related to more complex tasks.  
+
+
+Passing Grade:
+
+- On the detailed level used, I'm lacking Use case 10 and hence I would say no. The fix for it is very small though.
+
+
+Other not related to the task:
+
+- For the next review a readme file or some text describing reasoning for different things would be good. 
+  It would have made my task easier and easier to understand why X was chosen and Y left out etc.
+  
+ 
+ 
+ 
+[References]
+
+1   Applying UML and Patterns: An Introduction to Object-Oriented Analysis and Design and Iterative Development 3rd edition
+    Craig Larman
+	ISBN 0-13-148906-2
+
+2     UML Class Diagrams: Reference
+      https://msdn.microsoft.com/en-us/library/dd409437(VS.100).aspx
+      Downloaded 2016-09-10 

@@ -1,0 +1,39 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red17\green17\blue17;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11020\viewh8400\viewkind0
+\deftab720
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth9740\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+
+\f0\b\fs24 \cf0 \expnd0\expndtw0\kerning0
+Peer Review: Assignment 1 (Christer Hamberg) \
+
+\b0 By: Jari Beckman -2016/09/15\
+\pard\intbl\itap1\pardeftab1304\ri-386\sl276\slmult1\partightenfactor0
+\cf0 \kerning1\expnd0\expndtw0 \
+The domain models are very clean, readable and easy to understand by themselves. They have been isolated according to roles and the diagrams for administration and finance makes it easy for domain experts to understand a member\'92s point of view by providing a certain scope, as recommended by Oldfield [2].  An issue however might be that the diagrams lack a complete overview of the system as there aren\'92t any diagrams regarding the role \'94Secretary\'94, it looks more like the focus as stayed on the \'94Member\'94. Although, if one would create diagrams for each of these roles as well one might end up with up to six domain models if done in a similar way, so instead perhaps it would be beneficial to focus on making only one diagram per role (what can a member do, and what can a secretary do) - especially since this system is rather small. By doing so the diagrams could reach what Oldfield calls the \'94feel good\'94 factor, where everything present feels just right and the domain expert gets a complete overview in one single diagram.\
+\
+All aspects of the modeling are made according to the recommendations of Larman [1] by using \'94real-world\'94 classes and attributes, adding multiplicity where needed, making use of description classes, adding generalization to simplify the fees (since they are restrained by rules that might require specialization) and by using well constructed associations in the first two diagrams. The diagrams have a clear flow of information and present most of the essential entities.\
+\
+However, I believe that a few areas of the domain models could be improved: \
+\pard\intbl\itap1\pardeftab1304\li948\fi-142\ri-386\sl276\slmult1\partightenfactor0
+\cf0 \'95 The domain model for calendar seems incomplete lacking association names making it unclear whether a user reads or creates events\
+\'95 Minor inconsistencies between the diagrams; attributes memberID and boatID suddenly appears (diagram 2 and 3) while missing in the first diagram, while also stating that the club charges the member a fee for the boat itself (diagram 2) even though it is actually the berth that is being rented (diagram 1).\
+\'95 The 33 pages of use cases and design diagrams, while nicely made, seem unnecessary at this stage and presenting them to a domain expert might make it seem too complicated and over-worked - even though it might be useful from a developer\'92s point of view. For this assignment (grade 2) focus should be on the domain models mainly.\
+\pard\intbl\itap1\pardeftab1304\ri-386\sl276\slmult1\partightenfactor0
+\cf0 \
+I would consider that Christer has reached the criteria for grade 2, but I am missing certain parts as mentioned and would also like to recommend a slight remodeling to create fewer yet bigger/more complete diagrams.\
+\
+\
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf0 \expnd0\expndtw0\kerning0
+References:\
+\
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf0 \kerning1\expnd0\expndtw0 1. Larman C., Applying UML and Patterns 3rd Ed, 2005, ISBN: \cf2 9789332553941\
+2. Oldfield P., Domain Modeling, 2002, resource available 2016-09-13: \
+[http-_www.aptprocess.com_whitepapers_DomainModelling.pdf] \cell \lastrow\row
+}

@@ -1,0 +1,25 @@
+Updates done according to Johan Hagelbäck’s comments
+ 
+
+* All use cases must be in one domain model.
+
+Model changed to use UMLet as it is a free tool, and all use cases added into one model.
+Cutting down on detail level to fit all in one sheet. Also removing some details that are more linked to Grade 3 requirements.
+UMLet has a bug that it does not display arrows correctly in the .pdf format hence a .jpg is added as well to git.
+
+
+* YachtClub shall not be a concept. 
+  The whole system you model is a yacht club.
+
+YachtClub was removed, highlight on Member and Secretary done instead to make it more "go with the book" but in real life I would probably not have 
+included the members, they ought to be the domain owners/experts and should know what they are doing... 
+But this dsign is now perhaps more inline with the book.
+
+
+* The BearthAllocation should tie together a Boat and a Berth, and is managed by the Secretary. 
+  To make an allocation you need both a Boat and a Berth, so you must have relations to both.
+
+My original design was clearly too fuzzy about this, but the thought was that Berth Allocation is connected to YachtClub, 
+which knows both the members (boats) and the berths. Design is now changed so that Berth allocation derives this information directly from Boat and Berth.
+As in line with comment 1 YachtClub was removed.
+ 

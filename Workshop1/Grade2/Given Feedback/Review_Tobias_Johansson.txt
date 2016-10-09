@@ -1,0 +1,62 @@
+Review of Tobias Johansson's () Domain Model http://imgur.com/a/6sdlZ
+
+
+Good things and strengths:
+
+- Focus on the three main problem areas in the general requirements part Payment, Booking and Calendar.
+
+- No Software components in the drawing.
+
+- Good indications of needed attributes.
+
+- The same detail level is kept throughout all use cases.
+
+Improvements:
+
+- It would make sense to split the drawing in multiple parts, it would then give more value to the implementer.
+
+- Level of details is quite high so the diagram does not add that much compared to the requirements, a bit more details would be good to have.
+
+- Fee is more or less missing except for the attributes
+
+- Description of Events could be improved as per Larman chapter 9.13 When to Model with 'Description' Classes? [1]
+
+- Some associations like 'become' does not add any value would be better to leave them out as per Larman chapter 9.14 Associations, - Description of Events could be improved as peer Larman chapter 9.13 When to Model with 'Description' Classes? [1]
+
+- A drawing technicality avoid crossing lines, by moving Treasurer and Payment to the left side Member could be
+  moved to their places and hence with some redrawing you avoid crossing lines
+
+Faults or incorrect interpretations on my behalf:
+
+- I think there is a logical fault in the model. One Member has one booking and the booking has one boat and one berth.
+  But a member can have more than one boat so they are all located in the same berth, which is not possible! 
+  I think this needs to be looked over.
+
+
+Understandability/Readability:
+
+- As a developer I'm not sure if I would have that much use of the model. I think the detail level needs to be increased
+  so that it would complement the requirements more. The thoughts behind the attributes would for sure help, but I'm not
+  convinced about the drawing. Complex functions like boat allocation etc. could be improved so the domain model adds more
+  value.
+  
+- As a Secretary I would know what tasks I have, but how to do the booking is not visible in the drawing.
+
+- In general I would like to see a bit more details. But that is a matter of taste.  
+  
+Passing grade: 
+
+- As the model is not very detailed, I would say that it includes all use cases, and it passes the grade.  
+
+Other not related to the task:
+
+- For the next review a readme file or some text describing reasoning for different things would be good. 
+  It would have made my task easier and easier to understand why X was chosen and Y left out etc.
+  
+
+
+[References]
+
+1   Applying UML and Patterns: An Introduction to Object-Oriented Analysis and Design and Iterative Development 3rd edition
+    Craig Larman
+	ISBN 0-13-148906-2

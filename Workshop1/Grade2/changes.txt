@@ -1,0 +1,47 @@
+﻿The point with a peer-review is to gain good points on things that are not clear can be improved, all of them are acted upon. 
+However all of them did not result in changes to the domain model drawing.
+
+Leif Karlsson's feedback includes two questions:
+Question 1, Will a designer be able to understand the Domain Model as I opted to remove the Actors from the 
+Domain Model as Conceptual Classes. I considered to add them just because Larman lists “roles of people or 
+organizations…” in Table 9.1 [Ref 1] as something that can be good to know. But I have found very little value 
+of having actors in the Domain Model in real life. It is in my opinion better to show these in the flowcharts 
+(mentioned as Design Models, Fig 9.1 [Ref1]). The Domain Model should not be a “copy” of the requirements, 
+it should complement the requirements. 
+
+Question 2, is there a reason to keep past events in the calendar. Yes there is. I broke out Meetings and 
+Competitions as special cases of Events. And for these I think it is worth storing the event description long 
+time after the event has passed. To be able to backtrack old competitions / meetings. And links results and 
+meeting protocols to them etc. 
+
+Jari Beckman’s feedback
+Jari touches the same issue that Roles might have been good to use as well. And since the drawing is not 
+clear enough I added the Secretary to the Domain Models for Administration and Calendar.  Association was also 
+added at the same time, and some arrows showing direction to make the picture clearer.
+
+Jari’s comment about inconsistency was also acted upon. Some attributes not really necessary in the 
+Administration domain was removed. But the idea is not to show all data in all the different domain models, 
+rather the data that was found applicable to that model. Larman states (fig 9.25 ref[1]) that attributes 
+should not be used as foreign keys. On the contrary we use them as both foreign keys and for tracing of both 
+objects that needs a link in between and also to pick out test cases in real life. One example I can give is 
+that we try to limit the number of objects that needs to know about each other to avoid breaking too big chunks 
+of code when adding new functionality. Too many links will result in redesign and the way we track it is using 
+these ides. Thus in my opinion Larman might have to re think his recommendation. Or we need to find other useful 
+ways of tracking this.
+
+Jari’s comment about the fees is possibly a misunderstanding of the picture or the requirements as the problem description
+states that there are two types of fees a fixed and a variable fee which depends on the number of boats and size. 
+However I changed the naming of FlexibleFee to VariableFee to align more with the written problem description text.
+
+Flow charts were removed, I agree that they might be mode design rather that strict domain modelling. 
+
+Other changes
+BoatImage was added to Domain Model for Administration. The idea is not mine, it is taken from the review 
+I did of Tobias Johanssons Domain Model. I think it as a good way to show it and improved my own model with it,
+all in the spirit of Agile.
+
+[References]
+
+1   Applying UML and Patterns: An Introduction to Object-Oriented Analysis and Design and Iterative Development 3rd edition
+    Craig Larman
+	ISBN 0-13-148906-2
