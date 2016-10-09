@@ -1,5 +1,5 @@
-When I handed in the last books borrowed at the university of Helsink I chatted with the lady at the same time 
-and colletced the following use cases of her daily routines for this assignment:
+When I handed in the last books borrowed at the university of Helsinki I chatted with the lady at the same time 
+and collected the following use cases of her daily routines for this assignment:
 
 
 1. Administration of Clients 
@@ -7,11 +7,11 @@ and colletced the following use cases of her daily routines for this assignment:
 	(Update existing contact information)
 	(Remove Students that have graduated/left the university)
 	
-2. Handle Overdue books own studens
+2. Handle Overdue books own students
 	Issue reminders
 	Administrates Payments at return of Overdue books
 	
-3. Handle Overdue books borrowed to other Universites/Students of other Universites/Students
+3. Handle Overdue books borrowed to other Universities/Students of other Universities/Students
 	Issue reminders to borrowing institution
 	
 4. Handling of books	
@@ -21,21 +21,21 @@ and colletced the following use cases of her daily routines for this assignment:
 	Inventory of books (whole library)
 	
 5. Search
-	Locate books internaly
+	Locate books internally
 	Locate books at other universities
 	
 6. Special cases the IN and OUT shelf
-	In shelf consits of books borrowed from other universities, upon reception the book is registered as received and a notification is sent to the requesting student
-	Out shelf cosits in the same spirit of books borrowed to other universites, that should be shipped.
+	In shelf consists of books borrowed from other universities, upon reception the book is registered as received and a notification is sent to the requesting student
+	Out shelf consists in the same spirit of books borrowed to other universities, that should be shipped.
 	Shipping consists of 3 different scenarios, pickup locally, express shipment, postal shipment
-	Reserv books (move them to OUT shelf, pickup locally)
+	Reserve books (move them to OUT shelf, pickup locally)
 	
 	
 Assumptions made by me: 
 - Clients are both staff and students and staff.
-- A borrowed book is not the same as a book, as the hanling of the is different.
-- Borrowed books from other universites was low volume, thus I don't use a Book Item in this case
-- From the Overdue reminder's point of view the Client is institution in case it is borrowed to another university
+- A borrowed book is not the same as a book, as the handling of the book is different.
+- Borrowed books from other universities was low volume, thus I don't use a Book Item in this case
+- From the Overdue reminders point of view the Client is institution in case it is borrowed to another university
 - I didn't ask specifically about E-books hence only paper books are considered.
 - Registry and Catalogue is considered to be the same.
 - My assumption is that she has more tasks than this as well, but these were the main tasks mentioned by her.
