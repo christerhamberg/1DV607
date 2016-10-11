@@ -1,0 +1,181 @@
+Review of the design made by:
+-----------------------------------------------------------------------------
+
+Dickson,Nicholaus		dn222ex		dn222ex@student.lnu.se	
+Harrison  Katantazi		hk222jh	
+Abel,Tariku				as224fg
+
+https://github.com/dxoncharlz/Workshop1/tree/master/Workshop2
+
+
+
+General Comments:
+-----------------------------------------------------------------------------
+
+The review was made with 2 main things in mind. 
+
+1) Would I as a designer be able to "quickly" understand the code and be able to maintain / change it
+2) Would I as a tester be able to select test cases from the provided documentation and code.
+
+Hence these are my comments and thoughts of the application, some might be due to my misunderstanding 
+of how the designers of the application intended it to work.
+
+If you have any questions / comments please feel free to contact me at ch222xb@student.lnu.se
+
+/// Christer Hamberg 2016-10-11
+
+
+
+Running the application:
+-----------------------------------------------------------------------------
+
+The application comes with a short description on how to start it. 
+
+Possible improvements:
+- Be able to give the file path as a parameter when starting up the application as then it would be possible to script the parameter / start it automatically if the system was down or something.
+Now a manual intervention is needed every time the application is started.
+Also considering automated test of the application would not be possible as the user always has to enter the path manually.
+- The path could also be created if it does not exist now the user has to first setup the directory, then start the application.
+
+
+Quality of the application:
+-----------------------------------------------------------------------------
+
+There are issues with the quality of the application. After 10 minutes I had a member file or 120K lines and really only 10 real members.
+I sent the group leader a mail late Monday afternoon, asking if they'd like to test the code a bit more, and fix some bugs
+prior to me reviewing it, my mail was probably sent a bit too late, thus the original application code handed in is reviewed.
+
+I only list a few of the faults/bugs I found:
+
+1) Empty member name + no check on Personal number	
+- First member I define <leave name empty> and Personal number = 'o' (like olle)
+(the name should probably always contain some data)
+
+2) hardcoding of 99 in the menu selection can give strange effects
+- Select 4 to update the name, select 99 -> 
+
+Choose the corresponding number to select a members
+1, 
+2, 
+--> 99
+ERROR- There was a problem creating files, see system message and try again..
+WELCOME TO THE SIMPLE CRUD
+
+As 99 is a default option in your menu.
+
+3) Personal Number is not shown in Verbose List
+Select 2,2 and the personal number is missing 
+
+4) Changing data corrupts the file
+Select 4,1 and leave name empty and use '1' as the ID 
+Have a look at the file, the data is now duplicated
+
+5) Look at member specific data
+Select 5 and then 99 => 
+
+
+--> 99
+java.lang.IndexOutOfBoundsException: Index: 98, Size: 64
+ERROR- There was a problem creating files, see system message and try again..
+WELCOME TO THE SIMPLE CRUD
+System is connecting with data file... 
+creating new file connection...,please provide folder path
+--> 	at java.util.ArrayList.rangeCheck(Unknown Source)
+	at java.util.ArrayList.get(Unknown Source)
+	at View.SelectAMember.listAndSelectMember(SelectAMember.java:56)
+	
+6) Adding a boat
+The boat type should be restricted to a limited set of boats, however the biggest issue is that every time a 
+boat is added the member file is duplicated, and this is quite large now. And I have only done a few minor tasks.
+
+:
+:
+373, 
+374, 
+375, Kalle Anka
+376, Kalle Anka
+
+377, 
+378, 
+379, Kalle Anka
+380, Kalle Anka
+
+381, 
+382, 
+383, Kalle Anka
+384, Kalle Anka
+
+I end my reporting here as I think these issues should be addressed prior to continuing.
+
+
+
+Architecture:
+-----------------------------------------------------------------------------
+
+Based on the class diagram I think that the classes are too integrated with each other. 
+There are too many connections between the classes. 
+The Model - View architecture also contains some logical issues that I would consider to address. Just as examples:
+- Model handles a lot of the printouts and formatting of Strings, this logic should belong to View.
+- View handles creation of the Member object (call to new) one might rather pass the parameters (name and personal number) as
+arguments to the Model and let Model create the Member Object instead.
+ 
+I think that because of this (a mix of logic in the Model - View architecture) a lot of classes receives unnecessary connections.
+Class Member has connections to 12 of the 19 classes. 
+
+I would revise the Model - View separation once more. Where View contains all logic for displaying and collecting data and Model 
+for the storage of the data and request of which data to fetch. As if I would change the UI to a web browser I would need to recode
+the logic in the following classes belonging to Mpdel (DataFetcher, DataManager, DataStore, DataUpdater and List) as 
+they all contain logic belonging to View.
+
+GRASP or who creates who can be addressed as a lot of objects creates other objects. I had to draw a map of who creates who to understand
+the division of logic. 
+
+
+
+Coding Standards:
+-----------------------------------------------------------------------------
+
+In general I would consider addressing the following issues:
+
+- There are a number of spelling errors, in the displayed text strings, in the class names, in the methods etc.
+- Dead code, empty if statements, or unused imports should be removed.
+- Alignment with a Java style guide (for example https://google.github.io/styleguide/javaguide.html)
+- Comments in the code to improve understandability and maintainability of the code.
+
+
+
+Documentation:
+-----------------------------------------------------------------------------
+
+Documentation can be improved: 
+
+- There are a number of classes with incorrect names, or the names have been changed in the implementation.
+- There is no division between View and Model in the class diagram.  
+- There are connections between classes missing.
+- In the implementation the division between who creates who is not visible in the documentation.
+
+- The sequence diagram does not really tell what it is, or what it is supposed to show.
+- The UML syntax is also incorrect the "boxes" on top should be of <object name> : <class name> 
+  I.e. showing which class to look into for the implementation and not the name of the object. 	
+
+  :programStart is actually programStart:GeneralMain
+  :dataManage -> dataManage:DataManager
+   and so on
+   
+- As a personal comment, considering the Sequence Diagram as a document showing the flow through the application the current diagram does not 
+  add much. I would add a bit more details in the diagram to make it more usable for other developers and testers to understand the flow of the application better.
+  
+- I had to make my own documentation of the model in order to understand the relations between classes as well as who creates who.
+
+Conclusion:
+-----------------------------------------------------------------------------
+
+- The strong points in the application is the effort done in avoiding to duplicate code. 
+
+- The main areas of improvements are: Quality of the application, a better division between View and Model in respect to logic and responsibility,
+  I might be wrong but I think too much focus in the modelling might have been done on "who" has the data = the one to execute and show the data has been made.
+  Documentation needs to be corrected and also improved to get better usability of it as it servers as the map/blueprint to other parties learning about the application.
+
+The areas I have listed as areas of improvements needs to be addressed in my opinion prior to giving a passing grade. Hence I don't think the implementation is 
+sufficient to pass Grade 2 at this moment.  
+ 

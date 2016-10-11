@@ -1,0 +1,84 @@
+Review of the design made by:
+-----------------------------------------------------------------------------
+
+Johan Gudmundsson		jg222sh		johan.gudmundsson2012@gmail.com					
+
+https://github.com/JohanG2012/1dv607-OOAD/tree/master/WS2
+
+
+
+General Comments:
+-----------------------------------------------------------------------------
+
+The review was made with 2 main things in mind. 
+
+1) Would I as a designer be able to "quickly" understand the code and be able to maintain / change it
+2) Would I as a tester be able to select test cases from the provided documentation and code.
+
+Hence these are my comments and thoughts of the application, some might be due to my misunderstanding 
+of how the designer of the application intended it to work.
+
+If you have any questions / comments please feel free to contact me at ch222xb@student.lnu.se
+
+My own lack of good and in-depth of javaScripts might limit the review in regards to good coding standards etc.
+
+/// Christer Hamberg 2016-10-11
+
+
+
+Running the application:
+-----------------------------------------------------------------------------
+
+No real issues with running the application.
+It is a clear and straight forward GUI. 
+
+
+Quality of the application:
+-----------------------------------------------------------------------------
+
+It works well according to the requirements for Grade 2.
+
+
+Architecture:
+-----------------------------------------------------------------------------
+
+The division of Model and View could be improved, Model consists of a number of messages to be displayed that might rather logically belong to View.
+Also bundle consist of a lot of logic that rally ought to be in the model from an architectural point of view. This is now completely left "open in the air".
+Yes, the application is small, however most logic is applied to only a few classes, one might consider dividing this. 
+
+Coding Standards:
+-----------------------------------------------------------------------------
+
+I'm not the correct person to judge on this as my own knowledge of javaScript is not good enough to rule on this issue.
+Some comments in the code other than "True prints a Verbose list while False prints a Compact list" would improve the readability of the application.
+ 
+
+Documentation:
+-----------------------------------------------------------------------------
+
+Documentation can be improved: 
+
+- bundle is missing in the picture
+- According to the picture model is the class creating the other objects however that is not the case, the arrows should be corrected.
+
+- The sequence diagram (List)
+	* Classes in the boxes should be named :<Classname> i.e. :UI :View  and so on...
+	* UI does not exist as a class
+	* method calls should rather be the method calls of the application for example print (mode) where mode is the true / false
+	* In the sequence it looks like PersistanceModel calls View from "out of the air"
+	* Display should be a 'dotted' line
+
+- The sequence diagram (add)
+	* Similar comments as in the List case
+	* Also it looks like adding a boat is mandatory though it is rather than optional / it's own use case.
+	
+Conclusion:
+-----------------------------------------------------------------------------
+
+- The strong points a well working application 
+
+- Improvements could be made in a better / more clear division between the logic of View and the logic of Model.
+  Also the documentation could be improved to give a better/clearer overview of the whole application.
+  
+Grade2 is passed in my opinion.
+	
