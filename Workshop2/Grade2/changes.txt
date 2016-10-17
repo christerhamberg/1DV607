@@ -1,0 +1,16 @@
+UML diagrams were slightly updated.
+
+- No one saw the obvious "create" arrow was not connected to the box so I changed this.
+- Added a '1' to '1' for Boat and Member (1 is a default value so it was already there) but as it 
+  generated a comment during the review it was not clear for everyone that '1' is the default value.
+  So I added the '1' just to avoid this in the future, even though it is not needed.
+- More methods was added to the controller to show the logic of it better.
+- Comment 1 and 2 on the sequence diagram is probably a misunderstanding of function. So I did not change anything due to the comments.
+
+Code changes
+
+- 'private' added to the ECODEs in CacheStorage. I left it as an obvious thing to find and one reviewer did pick it up, that was good.
+
+General comment
+
+- Nothing was done to the ugly menu, might be fixed for grade 4.

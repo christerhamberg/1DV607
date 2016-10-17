@@ -7,12 +7,12 @@ import java.util.Set;
 
 public class CacheStorage implements CacheStorageInterface{	
 	
-	int ECODE100 = 100;  // Can not convert date of birth
-	int ECODE101 = 101;  // Can not allocate SystemId
-	int ECODE102 = 102;  // Failed to store new Member to file 
-	int ECODE103 = 103;  // Can not convert length of the boat 
-	int ECODE104 = 104;  // Failed to store boat 
-	int ECODE105 = 105;  // Failed to update boat 
+	private int ECODE100 = 100;  // Can not convert date of birth
+	private int ECODE101 = 101;  // Can not allocate SystemId
+	private int ECODE102 = 102;  // Failed to store new Member to file 
+	private int ECODE103 = 103;  // Can not convert length of the boat 
+	private int ECODE104 = 104;  // Failed to store boat 
+	private int ECODE105 = 105;  // Failed to update boat 
 
 	private Map <Integer,Member> memberData = new HashMap <Integer,Member> ();
 	private Map <String,Boat> boatData = new HashMap <String,Boat> ();
@@ -77,6 +77,7 @@ public class CacheStorage implements CacheStorageInterface{
 	}
 	
 	public void initBoat (int id, String type, double length){
+		
 		Boat bt = new Boat (id,type,length);
 		
 		int noOfBoats = memberData.get(id).getNoOfBoats() + 1;

@@ -117,6 +117,7 @@ CacheStorageInterface
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*
+m2=1
 storeData &gt;</panel_attributes>
     <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -130,6 +131,7 @@ storeData &gt;</panel_attributes>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*
+m2=1
 &lt; storeData</panel_attributes>
     <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
   </element>
@@ -154,50 +156,55 @@ m1=0..*
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
-&lt; storeDataTofile</panel_attributes>
+storeDataTofile v</panel_attributes>
     <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>720</x>
-      <y>190</y>
+      <y>270</y>
       <w>680</w>
-      <h>210</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
                                Requests user data &gt;
                                 Displays messages &gt;</panel_attributes>
-    <additional_attributes>660.0;190.0;10.0;10.0</additional_attributes>
+    <additional_attributes>660.0;110.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>470</x>
-      <y>190</y>
+      <y>270</y>
       <w>200</w>
-      <h>210</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-
-
-&lt; create,update, storeData
-&lt; retriveData</panel_attributes>
-    <additional_attributes>10.0;190.0;10.0;10.0</additional_attributes>
+create,update, storeData v
+retriveData v</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>380</x>
       <y>80</y>
-      <w>510</w>
-      <h>120</h>
+      <w>520</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>YachtClubController
 --
 +startProg()
 -useCaseCreateNewMember (ui: UIInterface, cache: CacheStorageInterface)
 -useCaseRemoveMember (ui: UIInterface, cache: CacheStorageInterface)
+-useCaseUpdateMember (ui: UIInterface, cache: CacheStorageInterface)
+-useCaseDisplaySingleMember (ui: UIInterface, cache: CacheStorageInterface)
+-useCaseDisplayCompactList (ui: UIInterface, cache: CacheStorageInterface)
+-useCaseDisplayVerboseList (ui: UIInterface, cache: CacheStorageInterface)
+-useCaseCreateBoat (ui: UIInterface, cache: CacheStorageInterface)
+-useCaseRemoveBoat (ui: UIInterface, cache: CacheStorageInterface)
+-useCaseUpdateBoat (ui: UIInterface, cache: CacheStorageInterface)
 :
 :</panel_attributes>
     <additional_attributes/>
@@ -277,7 +284,7 @@ _- boatTypes(): String[]_
       <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-&lt; initializeDataFromFile</panel_attributes>
+initializeDataFromFile ^</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
@@ -296,7 +303,6 @@ _- boatTypes(): String[]_
 --
 + storeNewMember (name: String, socSecId: String): int
 + storeBoat (key: int, boattype: String, length: String): int	
-:
 --
 Responsibilities
 -- Cache storage for all data
