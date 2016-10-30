@@ -1,6 +1,5 @@
 package model;
 
-import controller.PlayGame;
 import model.rules.RulesFactory;
 
 public class Game {
