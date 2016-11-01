@@ -1,0 +1,87 @@
+Review of salam's Modifications of the BlackJack game
+
+These are my interpretations and they could be wrong due to me missing or
+misunderstanding the logic of the implementation
+
+RUNNING THE CODE
+----------------
+
+With some minor modifications to the package naming I ran the code in eclipse. 
+
+UML Diagram
+-----------
+
+The drawing is not fully up to date with the code. For example American/Inter. game 
+strategy does not implement the IWinStrategy Interface. See also code refactoring.
+
+UI-CONTROLLER DEPENDENCY
+------------------------
+
+I removed it in the same way by letting the UI check and return a true/false kind of answer so the 
+solution is excelent :) 
+
+SOFT17 IMPLEMENTATION
+---------------------
+
+It is added to the game
+
+WINGAME IMPLEMENTATION
+----------------------
+
+It is added to the game
+
+CODE REFACTORING
+----------------
+
+There are some left overs that should be removed, for example Class Deck is still a dependency in xxxGameStrategy.
+So the Interfaces, etc. and "old" xxxGameStrategy should be checked and not needed dependencies should be removed.
+This needs a small update effort.
+
+OBSERVATION PATTERN
+-------------------
+
+There are some smaller issues that should be checked and corrected in the Observation Pattern implementation.
+
+The logic of INewCardObserver interface is for some reason placed in the the .rules package. 
+A more logical place would be the model package as the drawing also shows.
+
+The logic and implementaion of the Observer pattern should be checked, yes it works but the logic could 
+be enhanced. For example method addSubscriber is never used in the Player class. 
+The subscription of the message is actually done in the Game class.
+
+	    m_player.m_subscribers.add(a_sub);
+	    m_dealer.m_subscribers.add(a_sub);
+		
+This is not a very nice solution and I would change it. 
+		
+
+The last result is displayed twice. Consider having a look at the notifyForNewCard() in IsGameOver()
+
+	public boolean Play() {
+
+		/**
+		 * The controller will add himself to the observer as a subscriber
+		 */
+		
+
+		a_view.DisplayWelcomeMessage();
+		
+		if (a_game.IsGameOver()) {
+			
+			notifyForNewCard();
+			
+			a_view.DisplayGameOver(a_game.IsDealerWinner());
+			a_view.DisplayWelcomeMessage();
+		}
+
+
+ 
+
+PASSING GRADE:
+--------------
+ 
+With only minor modifications needed I think the implementation passes grade 2.
+
+/// Christer Hamberg
+
+
