@@ -2,7 +2,7 @@ package model;
 
 import java.util.Set;
 
-public interface CacheStorageInterface {
+public interface MemberFacadeInterface {
 	
 	// create new Member
 	public int storeNewMember (String name, String socSecId);

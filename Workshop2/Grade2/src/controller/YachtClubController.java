@@ -3,7 +3,7 @@ package controller;
 import java.util.Iterator;
 import java.util.Set;
 
-import model.CacheStorageInterface;
+import model.MemberFacadeInterface;
 import view.UIInterface;
 
 public class YachtClubController {
@@ -12,7 +12,7 @@ public class YachtClubController {
 	private int ECODE920 = 920;  // Faulty boat selection
 	private int ECODE921 = 921;  // No boats assigned to member
 
-	public void startProg (UIInterface ui, CacheStorageInterface cache){
+	public void startProg (UIInterface ui, MemberFacadeInterface cache){
 			
 		int value = 0;
 		
@@ -38,7 +38,7 @@ public class YachtClubController {
 		
 	}
 	
-	private void useCaseCreateNewMember (UIInterface ui, CacheStorageInterface cache){
+	private void useCaseCreateNewMember (UIInterface ui, MemberFacadeInterface cache){
 		
 		// 1. Get the New Members Name
 	
@@ -56,7 +56,7 @@ public class YachtClubController {
 	}
 	
 	
-	private void useCaseRemoveMember (UIInterface ui, CacheStorageInterface cache){			
+	private void useCaseRemoveMember (UIInterface ui, MemberFacadeInterface cache){			
 			
 		// 1. List all members
 			
@@ -90,7 +90,7 @@ public class YachtClubController {
 		
 	}
 	
-	private void useCaseUpdateMember (UIInterface ui, CacheStorageInterface cache){
+	private void useCaseUpdateMember (UIInterface ui, MemberFacadeInterface cache){
 		
 		// 1. List all members
 		
@@ -128,7 +128,7 @@ public class YachtClubController {
 		
 	}
 	
-	private void useCaseDisplaySingleMember (UIInterface ui, CacheStorageInterface cache){
+	private void useCaseDisplaySingleMember (UIInterface ui, MemberFacadeInterface cache){
 		
 		// 1. List all members
 		
@@ -149,7 +149,9 @@ public class YachtClubController {
         		
         		// 5. Display Data for the Member
         		
-    			ui.displayVerboseObject(cache.getMemberName (key), cache.getMemberId (key), key);
+        		ui.displaySingleMemberHeading();
+        		
+    			ui.displayMemberObject(cache.getMemberId (key), cache.getMemberName (key),  cache.getMemberPersonalNumber (key), cache.getMemberNoOfBoats(key));
 
         		// 6. Get number of owned boats
         		
@@ -160,7 +162,7 @@ public class YachtClubController {
     				ui.displayVerboseObjectBoat (loopMe,cache.getMemberBoatType (key,loopMe),cache.getMemberBoatLength (key,loopMe));
         			
         		}
-        		
+        		        		
         	}
         	else ui.displayOpResult (ECODE900);
         
@@ -173,7 +175,7 @@ public class YachtClubController {
 	
 	
 	
-	private void useCaseDisplayCompactList (UIInterface ui, CacheStorageInterface cache){
+	private void useCaseDisplayCompactList (UIInterface ui, MemberFacadeInterface cache){
 		
 		// 1. Get all hashKeys
 		
@@ -196,7 +198,7 @@ public class YachtClubController {
 		
 	}
 	
-	private void useCaseDisplayVerboseList (UIInterface ui, CacheStorageInterface cache){
+	private void useCaseDisplayVerboseList (UIInterface ui, MemberFacadeInterface cache){
 		
 		// 1. Get all hashKeys
 		
@@ -228,7 +230,7 @@ public class YachtClubController {
 	}
 	
 	
-	private void useCaseCreateBoat (UIInterface ui, CacheStorageInterface cache){
+	private void useCaseCreateBoat (UIInterface ui, MemberFacadeInterface cache){
 		
 		// 1. List all members
 		
@@ -285,7 +287,7 @@ public class YachtClubController {
 		
 	}
 	
-	private void useCaseRemoveBoat (UIInterface ui, CacheStorageInterface cache){
+	private void useCaseRemoveBoat (UIInterface ui, MemberFacadeInterface cache){
 		
 		// 1. List all members
 		
@@ -351,7 +353,7 @@ public class YachtClubController {
 		
 	}
 	
-	private void useCaseUpdateBoat (UIInterface ui, CacheStorageInterface cache){
+	private void useCaseUpdateBoat (UIInterface ui, MemberFacadeInterface cache){
 		
 		// 1. List all members
 		

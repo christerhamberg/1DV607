@@ -19,18 +19,28 @@ public class FileStorage {
 	private String BOATFILE = "boat.csv";
 	private String IDFILE = "id.csv";
 	//private String DEL = "DELETED";
+	
+	private static FileStorage ownInstrance = null;
 
+	public static FileStorage getInstance (){
+		
+		if (ownInstrance==null) ownInstrance = new FileStorage();
+		return ownInstrance;
+		
+	}
+	
 	public FileStorage (){
 		
 		filePath = "c:\\skolan\\YachtClub\\";
 	
 	}
 	
-	public FileStorage (String fp){
+	public void setFilePath (String fp){
 		
 		filePath = fp + File.separatorChar;
 	
 	}
+	
 	
 	public boolean initFileStorage (){
 		
@@ -86,7 +96,7 @@ public class FileStorage {
 	    
 	}
 	
-	public boolean rebuildCache (CacheStorage rebuildCache){
+	public boolean rebuildCache (MemberFacade rebuildCache){
 		
 		memberFilePath = filePath + MEMBERFILE;	
 		boatFilePath = filePath + BOATFILE;	
@@ -136,7 +146,7 @@ public class FileStorage {
 				while (sc.hasNext() == true){
 					
 					String data = sc.nextLine();
-					
+										
 					if (data.length()>1){
 					
 						try {
@@ -248,9 +258,5 @@ public class FileStorage {
 		return false;
 		   
 	}
-	
-	
-
-
 
 }

@@ -1,3 +1,35 @@
+Changes after Johan H's comment:
+
+Boat allocation and interworking moved from CacheStorage to Member as it violates the Information Expert pattern. 
+I would not have done this in a real case, as I think it messes up the interfaces with other Classes to much
+but as a practice I did it anyway. I also did it in the way that I change "very" little of the existing logic just 
+to see how difficult the redesign would be.
+
+Some thoughts. In the old version Cache had a nice view of both Member and Boat, and often needs both. In the new
+design it is more complicated as looping needs to be done on first member and then on boat via member. In this 
+particular case I think that clean interfaces between the classes are more important that the Information Expert pattern.
+The old design was more lined up for implementation of grade3 and grade4 requirements that I now have to change as well.
+
+But it was a very good exercise. Some other redesign that would be needed to realy make a good solution of this new
+implementation would be to look into the file handling a new structure would clean up some of the current mess.
+I.e. now I have two files one for member and one for boat that was good for the old implementation. With this change, 
+I would in a real case change handling to store 1 file for members, create a subfolder (with member id as name) and 
+under that store a file for each member instead. That kind of solution should clear up the mess a bit.
+
+I actually think the old design was more object oriented that this one. But that is only a personal opinion.
+It is what we all have been reading pick your battles!
+
+Main changes. 
+- HashMap storing boats in CacheStorage was removed.
+- HashMap storing boats implemented in Member
+- CacheStorage renamed to MemberFacade as it is no longer a cache.
+- FileStorage implementation slightly modified to make it look more like a singleton
+- Iteration changed due to moving Boat under Member
+- The ugly CLI was a bit cleaned up in regard to the printouts. The new once should not hurt the eye as much as the old once.
+
+
+
+
 UML diagrams were slightly updated.
 
 - No one saw the obvious "create" arrow was not connected to the box so I changed this.

@@ -6,6 +6,13 @@ public class UI implements UIInterface{
 	
 	private Scanner sc ;
 	
+	private int MEMBER_SPACE_NAME = 10;
+	private int MEMBER_SPACE_NOOFBOATS = 40;
+	private int MEMBER_SPACE_SOCIALSECID = 50;
+	
+	private int BOAT_SPACE_TYPE = 10;
+	private int BOAT_SPACE_LENGTH = 30;
+	
 	public UI (){
 		sc = new Scanner (System.in);
 	}
@@ -116,30 +123,122 @@ public class UI implements UIInterface{
 		
 	}
 	
-	public void displayCompactObjectHeading (){
-		System.out.print("\nCompact List of all users");
-		System.out.print("\nID\tName\tNumber of Boats");
+	public void displaySingleMemberHeading (){
+		String writeString = "\nID";
+		while (MEMBER_SPACE_NAME> writeString.length()) writeString = writeString + " ";			
+		writeString = writeString + " NAME";
+		while (MEMBER_SPACE_NOOFBOATS> writeString.length()) writeString = writeString + " ";
+		writeString = writeString + " BOATS";
+		
+		while (MEMBER_SPACE_SOCIALSECID> writeString.length()) writeString = writeString + " ";
+		writeString = writeString + " SOCIAL SECURITY ID";
+		
+		System.out.print(writeString);
+		
+	    writeString = "\n  Boat ID";
+		while (BOAT_SPACE_TYPE> writeString.length()) writeString = writeString + " ";			
+		writeString = writeString + " Boat type";
+		while (BOAT_SPACE_LENGTH> writeString.length()) writeString = writeString + " ";
+		writeString = writeString + " Length";
+		
+		System.out.print(writeString);
 	}
 	
+	public void displayCompactObjectHeading (){
+		System.out.print("\nCompact List of all users");
+		
+		String writeString = "\nID";
+		while (MEMBER_SPACE_NAME> writeString.length()) writeString = writeString + " ";			
+		writeString = writeString + " NAME";
+		while (MEMBER_SPACE_NOOFBOATS> writeString.length()) writeString = writeString + " ";
+		writeString = writeString + " NUMBER OF BOATS";
+		
+		System.out.print (writeString);
+		
+	}
+	
+	public void displayMemberObject (int id, String name, int socSecId, int noOfBoats){
+		
+		String writeString = "\n" +id;
+		while (MEMBER_SPACE_NAME> writeString.length()) writeString = writeString + " ";			
+		writeString = writeString + " " + name;
+		while (MEMBER_SPACE_NOOFBOATS> writeString.length()) writeString = writeString + " ";
+		writeString = writeString + " " + noOfBoats;
+		
+		while (MEMBER_SPACE_SOCIALSECID> writeString.length()) writeString = writeString + " ";
+		writeString = writeString + " " + socSecId;
+		
+		System.out.print(writeString);
+		
+	}
+
+	
 	public void displayCompactObject (String name, int id, int boats){
-		System.out.print("\n" +id +"\t" +name +"\t" +boats);
+		
+		String writeString = "\n" +id;
+		while (MEMBER_SPACE_NAME> writeString.length()) writeString = writeString + " ";			
+		writeString = writeString + " " + name;
+		while (MEMBER_SPACE_NOOFBOATS> writeString.length()) writeString = writeString + " ";
+		writeString = writeString + " " + boats;
+		
+		System.out.print(writeString);
+	
 	}
 
 	public void displayVerboseObjectHeading (){
 		System.out.print("\nVerbose List of all users");
-		System.out.print("\nID\tName\tSocial Security Number");
-		System.out.print("\n\tBoat id\tBoat type\tlength");
+		
+		String writeString = "\nID";
+		while (MEMBER_SPACE_NAME> writeString.length()) writeString = writeString + " ";			
+		writeString = writeString + " NAME";
+		while (MEMBER_SPACE_NOOFBOATS> writeString.length()) writeString = writeString + " ";
+		writeString = writeString + " SOCIAL SECURITY ID";
+		
+		System.out.print(writeString);
+		
+	    writeString = "\n  Boat ID";
+		while (BOAT_SPACE_TYPE> writeString.length()) writeString = writeString + " ";			
+		writeString = writeString + " Boat type";
+		while (BOAT_SPACE_LENGTH> writeString.length()) writeString = writeString + " ";
+		writeString = writeString + " Length";
+		
+		System.out.print(writeString);
+
 	}
 	
 	public void displayVerboseObject (String name,int socSecId, int id){
-		System.out.print("\n" +id +"\t" +name +"\t" +socSecId);
+		
+		String writeString = "\n" +id;
+		while (MEMBER_SPACE_NAME> writeString.length()) writeString = writeString + " ";			
+		writeString = writeString + " " + name;
+		while (MEMBER_SPACE_NOOFBOATS> writeString.length()) writeString = writeString + " ";
+		writeString = writeString + " " + socSecId;
+
+		System.out.print(writeString);
+
 	}
 	
-	public void displayVerboseObjectBoat (int id1, int id2, String type, double length){
-		System.out.print("\n  " +id1 +"_" +id2 +"\t" +type +"\t" +length);
+	public void displayVerboseObjectBoat (int boatId1, int boatId2, String boatType, double boatLength){
+
+		String writeString = "\n  " +boatId1 +"_" +boatId2;
+		while (BOAT_SPACE_TYPE> writeString.length()) writeString = writeString + " ";			
+		writeString = writeString + " " + boatType;
+		while (BOAT_SPACE_LENGTH> writeString.length()) writeString = writeString + " ";
+		writeString = writeString + " " + boatLength;
+
+		System.out.print(writeString);
+		
 	}
-	public void displayVerboseObjectBoat (int id1, String type, double length){
-		System.out.print("\n  " +id1 +"\t" +type +"\t" +length);
+	public void displayVerboseObjectBoat (int boatId, String boatType, double boatLength){
+		
+		String writeString = "\n" +boatId;
+		while (BOAT_SPACE_TYPE> writeString.length()) writeString = writeString + " ";			
+		writeString = writeString + " " + boatType;
+		while (BOAT_SPACE_LENGTH> writeString.length()) writeString = writeString + " ";
+		writeString = writeString + " " + boatLength;
+
+		System.out.print(writeString);
+		
 	}
 	
 	public void displayMemberMenuUpdateBoat (){

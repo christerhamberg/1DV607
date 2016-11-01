@@ -39,6 +39,10 @@ public interface UIInterface {
 	public void displayVerboseObjectBoat (int id1,int id2, String type, double length);
 	public void displayVerboseObjectBoat (int id1, String type, double length);
 
+	// show one member heading
+	public void displaySingleMemberHeading();
+	public void displayMemberObject (int id, String name, int socSecId, int noOfBoats);
+	
 	// select option from menu
 	public int selectMenu ();
 	

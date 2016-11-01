@@ -6,7 +6,7 @@
     <coordinates>
       <x>27</x>
       <y>0</y>
-      <w>1305</w>
+      <w>1395</w>
       <h>873</h>
     </coordinates>
     <panel_attributes>Register Boat</panel_attributes>
@@ -30,18 +30,18 @@ bg=white</panel_attributes>
       <x>207</x>
       <y>63</y>
       <w>27</w>
-      <h>54</h>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
       <x>207</x>
-      <y>99</y>
+      <y>108</y>
       <w>18</w>
-      <h>765</h>
+      <h>756</h>
     </coordinates>
     <panel_attributes>
 bg=yellow</panel_attributes>
@@ -67,15 +67,15 @@ bg=white</panel_attributes>
       <w>207</w>
       <h>27</h>
     </coordinates>
-    <panel_attributes>cache:CacheStorage
+    <panel_attributes>memFacade:MemberFacade
 bg=white</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1179</x>
-      <y>45</y>
+      <x>1197</x>
+      <y>711</y>
       <w>126</w>
       <h>27</h>
     </coordinates>
@@ -86,7 +86,7 @@ bg=white</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>891</x>
+      <x>855</x>
       <y>45</y>
       <w>117</w>
       <h>27</h>
@@ -101,10 +101,10 @@ bg=white</panel_attributes>
       <x>540</x>
       <y>63</y>
       <w>27</w>
-      <h>63</h>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -112,32 +112,32 @@ bg=white</panel_attributes>
       <x>684</x>
       <y>63</y>
       <w>27</w>
-      <h>270</h>
+      <h>279</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;280.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;290.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1233</x>
-      <y>63</y>
+      <x>1251</x>
+      <y>729</y>
       <w>27</w>
-      <h>630</h>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;680.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>936</x>
+      <x>900</x>
       <y>63</y>
       <w>27</w>
-      <h>315</h>
+      <h>333</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;330.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;350.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -178,9 +178,9 @@ value = selectMenu ()</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>540</x>
-      <y>108</y>
+      <y>117</y>
       <w>18</w>
-      <h>198</h>
+      <h>189</h>
     </coordinates>
     <panel_attributes>
 bg=yellow</panel_attributes>
@@ -203,7 +203,7 @@ showMainMenu ()</panel_attributes>
     <coordinates>
       <x>225</x>
       <y>153</y>
-      <w>261</w>
+      <w>252</w>
       <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
@@ -250,9 +250,9 @@ displayMemberMenuBoatFooter ()</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>684</x>
-      <y>315</y>
+      <y>324</y>
       <w>18</w>
-      <h>90</h>
+      <h>81</h>
     </coordinates>
     <panel_attributes>
 bg=yellow</panel_attributes>
@@ -261,10 +261,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1233</x>
-      <y>675</y>
+      <x>1251</x>
+      <y>756</y>
       <w>18</w>
-      <h>54</h>
+      <h>27</h>
     </coordinates>
     <panel_attributes>
 bg=yellow</panel_attributes>
@@ -273,8 +273,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>936</x>
-      <y>360</y>
+      <x>900</x>
+      <y>378</y>
       <w>18</w>
       <h>36</h>
     </coordinates>
@@ -312,21 +312,21 @@ bg=yellow</panel_attributes>
       <x>684</x>
       <y>396</y>
       <w>27</w>
-      <h>234</h>
+      <h>252</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;240.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;260.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>936</x>
-      <y>387</y>
+      <x>900</x>
+      <y>405</y>
       <w>27</w>
-      <h>81</h>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
@@ -403,8 +403,8 @@ types[] = getValidBoatTypes ()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1080</x>
-      <y>630</y>
+      <x>1278</x>
+      <y>666</y>
       <w>117</w>
       <h>27</h>
     </coordinates>
@@ -417,12 +417,12 @@ bg=white</panel_attributes>
     <coordinates>
       <x>693</x>
       <y>360</y>
-      <w>261</w>
+      <w>225</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 types[] = boatTypes ()</panel_attributes>
-    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
@@ -477,9 +477,9 @@ legth = getBoatLength ()</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>684</x>
-      <y>612</y>
+      <y>630</y>
       <w>18</w>
-      <h>216</h>
+      <h>198</h>
     </coordinates>
     <panel_attributes>
 bg=yellow</panel_attributes>
@@ -500,31 +500,31 @@ storeBoat (key,types,length)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>693</x>
-      <y>621</y>
-      <w>405</w>
+      <x>1035</x>
+      <y>657</y>
+      <w>261</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 create (key,boattype,doubleLength)</panel_attributes>
-    <additional_attributes>430.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1134</x>
-      <y>648</y>
+      <x>1332</x>
+      <y>684</y>
       <w>27</w>
-      <h>126</h>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>891</x>
-      <y>720</y>
+      <x>981</x>
+      <y>45</y>
       <w>117</w>
       <h>27</h>
     </coordinates>
@@ -535,33 +535,33 @@ bg=white</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>936</x>
-      <y>738</y>
+      <x>1026</x>
+      <y>63</y>
       <w>27</w>
-      <h>45</h>
+      <h>612</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;660.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>693</x>
-      <y>756</y>
-      <w>261</w>
+      <y>639</y>
+      <w>351</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-noOfBoats = getNoOfBoats ()</panel_attributes>
-    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+reult = storeNewBoat (file,type,length)</panel_attributes>
+    <additional_attributes>370.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>936</x>
-      <y>765</y>
+      <x>1026</x>
+      <y>657</y>
       <w>18</w>
-      <h>54</h>
+      <h>135</h>
     </coordinates>
     <panel_attributes>
 bg=yellow</panel_attributes>
@@ -570,26 +570,14 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>693</x>
-      <y>783</y>
-      <w>261</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-setNoOfBoats (noOfBoats+1)</panel_attributes>
-    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>693</x>
-      <y>666</y>
-      <w>558</w>
+      <x>1035</x>
+      <y>738</y>
+      <w>234</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 writeNewBoatToFile (String, true)</panel_attributes>
-    <additional_attributes>600.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -642,12 +630,12 @@ displayOpResult (result)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>693</x>
-      <y>693</y>
-      <w>558</w>
+      <y>765</y>
+      <w>351</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 result</panel_attributes>
-    <additional_attributes>10.0;20.0;600.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;370.0;20.0</additional_attributes>
   </element>
 </diagram>

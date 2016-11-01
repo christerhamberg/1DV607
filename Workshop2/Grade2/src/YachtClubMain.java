@@ -1,6 +1,6 @@
 import controller.YachtClubController;
-import model.CacheStorage;
-import model.CacheStorageInterface;
+import model.MemberFacade;
+import model.MemberFacadeInterface;
 import view.UI;
 import view.UIInterface;
 
@@ -60,7 +60,7 @@ public class YachtClubMain {
 		
 		// Create the Model (CacheStorage)
 		
-		CacheStorageInterface cache = new CacheStorage (fileString);
+		MemberFacadeInterface cache = new MemberFacade (fileString);
 		
 		// Create the Controller (YachtClubRegister)
 		

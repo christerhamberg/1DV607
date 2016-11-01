@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-public class CacheStorage implements CacheStorageInterface{	
+public class MemberFacade implements MemberFacadeInterface{	
 	
 	private int ECODE100 = 100;  // Can not convert date of birth
 	private int ECODE101 = 101;  // Can not allocate SystemId
@@ -13,17 +13,19 @@ public class CacheStorage implements CacheStorageInterface{
 	private int ECODE103 = 103;  // Can not convert length of the boat 
 	private int ECODE104 = 104;  // Failed to store boat 
 	private int ECODE105 = 105;  // Failed to update boat 
+	private int ECODE106 = 106;  // Incorrect Social Security Number 
 
 	private Map <Integer,Member> memberData = new HashMap <Integer,Member> ();
-	private Map <String,Boat> boatData = new HashMap <String,Boat> ();
 	
 	private FileStorage file;
 	
 	
-	public CacheStorage (String filePath){
+	public MemberFacade (String filePath){
 		
 		// initialize and read data if any
-		file = new FileStorage (filePath);
+	    file = FileStorage.getInstance();
+				
+		file.setFilePath(filePath);
 		
 		// initialize FileStorage
 		if (file.initFileStorage() == false) file = null;
@@ -41,6 +43,9 @@ public class CacheStorage implements CacheStorageInterface{
 		
 	    try {
 			intSocSecId = Integer.parseInt (socSecId);
+			
+			// ADD VALIDATION OF SOCIAL SECURITY NUMBER HERE
+			
 		}
 		catch (NumberFormatException e){
 			return ECODE100; // error 100
@@ -74,19 +79,17 @@ public class CacheStorage implements CacheStorageInterface{
 	public void initMemeber (int id, String name, int intSocSecId){
 		Member mb = new Member (id,name,intSocSecId);
 		memberData.put (id,mb);
+		
+		
 	}
 	
 	public void initBoat (int id, String type, double length){
 		
-		Boat bt = new Boat (id,type,length);
-		
-		int noOfBoats = memberData.get(id).getNoOfBoats() + 1;
-		memberData.get(id).setNoOfBoats(noOfBoats);
-				
-		String boatKey = "" + id +"_" +noOfBoats;
-		boatData.put (boatKey,bt);
+	    Member memberObject = memberData.get(id);
 
-	}
+	    memberObject.initNewBoat (type, length);
+		
+    }
 	
 	
 	
@@ -163,29 +166,14 @@ public class CacheStorage implements CacheStorageInterface{
 	
 	public int removeMember (int key){
 		
-		// remove any boat if they exist
-		int boats = memberData.get(key).getNoOfBoats();
-		if (boats>0){
-			
-			for (int loopMe=1;boats>=loopMe;loopMe++){
-				
-				String boatKey = "" + key +"_" +loopMe;
-				
-				if (boatData.containsKey(boatKey) == true){
-					
-					// remove the boat object 
-					boatData.remove(boatKey);
-				
-				}
-					
-			}
-			
-			storeAllBoats ();
-			
-		}
-		
+	    Member memberObject = memberData.get(key);
+
+	    memberObject.removeAllBoats ();
+	    		
 		// remove the member Object
 		memberData.remove(key);
+		
+		storeAllBoats ();
 		
 		// store all data
 		return storeAllMembers();
@@ -238,28 +226,17 @@ public class CacheStorage implements CacheStorageInterface{
 		}
 	    
 		// Create a new Boat instance
+	    
+	    Member memberObject = memberData.get(key);
+	    
+	    boolean result = memberObject.storeNewBoat (file,boattype,doubleLength);
+	    
+	    if (result == false) return ECODE104;
 		
-		Boat bt = new Boat (key,boattype,doubleLength);
-		
-		// Store the data in the file structure
-		
-		if (file.writeNewBoatToFile(bt.writeToFile(), true) == -1) return ECODE104; // error 104
-			
-		// update number of boats for the user
-		
-		int noOfBoats = memberData.get(key).getNoOfBoats() + 1;
-		memberData.get(key).setNoOfBoats(noOfBoats);
-		
-		String boatKey = "" + key +"_" +noOfBoats;
-		
-		// add the MemberData instance to the HashMap
-		
-		boatData.put (boatKey,bt);
-		
-		// return result
-		
-		return 0;
-	    		
+		// Return SUCCESSFUL
+	    
+	    return 0;
+	   
 	}
 	
 	
@@ -275,103 +252,65 @@ public class CacheStorage implements CacheStorageInterface{
 			return ECODE103; // error 103
 		}
 		
-		String boatKey = "" + key1 +"_" +key2;
+	    
+	    Member memberObject = memberData.get(key1);
+	    
+	    boolean result = memberObject.updateBoatData (key2,boattype,doubleLength);
+	    		
+        if (result == false) return ECODE105;
 		
-		if (boatData.containsKey(boatKey) == true){
-			
-			boatData.get(boatKey).setBoatType(boattype);
-			boatData.get(boatKey).setBoatLength(doubleLength);
-
-			return storeAllBoats ();
-			
-		}
-		else return ECODE105;
+		return storeAllBoats ();
 	    		
 	}
 	
 	public int removeBoat (int key1,int key2){
 		
-		String boatKey = "" + key1 +"_" +key2;
-		
-		if (boatData.containsKey(boatKey) == true){
-			
-			// remove the boat object 
-			boatData.remove(boatKey);
-			
-			// decrease number of owned boats
-			
-			int noOfBoats = memberData.get(key1).getNoOfBoats();
-			memberData.get(key1).setNoOfBoats(noOfBoats-1);
-
-			// rehash boats if needed 
-			
-			if (key2<noOfBoats){
-				
-				for (int loopMe=key2;(noOfBoats-1)>=loopMe;loopMe++){
-					
-					String boatKey1 = "" + key1 +"_" +(loopMe+1);
-					String boatKey2 = "" + key1 +"_" +(loopMe);
-
-					boatData.put(boatKey2, boatData.get(boatKey1));
-							
-				}
-				
-				boatKey = "" + key1 +"_" +(noOfBoats);
-
-				boatData.remove(boatKey);
-
-			
-			}
-			
-			return storeAllBoats ();
-			
-		}
-		else return ECODE105;
+        Member memberObject = memberData.get(key1);
+	    
+	    boolean result = memberObject.removeBoat (key2);
 	    		
+        if (result == false) return ECODE105;
+        
+		return storeAllBoats ();
+			    		
 	}
 	
-	public String getMemberBoatType (int key, int boat){
+	public String getMemberBoatType (int key1, int key2){
 		
-		String boatKey = "" +key + "_" +boat;
-		
-		if (boatData.containsKey(boatKey) == true){
-			return boatData.get(boatKey).getBoatType();
-		}
-		else return "-1";	
-		
+        Member memberObject = memberData.get(key1);
+	    return memberObject.getMemberBoatType (key2);
+	    		
 	}
-	public double getMemberBoatLength (int key, int boat){
+	public double getMemberBoatLength (int key1, int key2){
 		
-		String boatKey = "" +key + "_" +boat;
-		
-		if (boatData.containsKey(boatKey) == true){
-			return boatData.get(boatKey).getBoatLength();
-		}
-		
-		else return -1D;	
+        Member memberObject = memberData.get(key1);
+	    return memberObject.getMemberBoatLength (key2);
 		
 	}
 
+	
+	
 	private int storeAllBoats (){
-		
-		Set <String> hashKeys = boatData.keySet();
-		Iterator<String> iter = hashKeys.iterator();
+				
+		Set <Integer> hashKeys = memberData.keySet();
+		Iterator<Integer> iter = hashKeys.iterator();
 		
 		// Store all Objects
 		
+		boolean append = false; // overwrite the file
+		
 		while (iter.hasNext() == true){
 			
-			boolean append = false; // overwrite the file
-			
-			while (iter.hasNext() == true){
-			
-				String key = iter.next();
+			int key = iter.next();
 				
-				if (file.writeNewBoatToFile(boatData.get(key).writeToFile(), append) == -1) return ECODE104; // error 104
-				append = true; // following objects append to the new file
-				
-			}
+		    Member memberObject = memberData.get(key);
+		    
+		    if (memberObject.getNoOfBoats()>0){
+		    		       
+		       if (memberObject.storeAllBoats(file,append) == -1) return ECODE104; // error 104
+	           append = true; // following objects append to the new file
 			
+		   }
 		}
 		
 		return 0;
