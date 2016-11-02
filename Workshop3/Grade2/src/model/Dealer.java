@@ -15,10 +15,6 @@ public class Dealer extends Player {
     m_hitRule = a_rulesFactory.GetHitRule();
     m_winnerRule = a_rulesFactory.GetWinnerRule();
     		
-    /*for(Card c : m_deck.GetCards()) {
-      c.Show(true);
-      System.out.println("" + c.GetValue() + " of " + c.GetColor());
-    } */   
   }
   
   
@@ -34,16 +30,8 @@ public class Dealer extends Player {
 
   public boolean Hit(Player a_player) {
     if (m_deck != null && a_player.CalcScore() < g_maxScore && !IsGameOver()) {
-    	
-      /*
-      Card c;
-      c = m_deck.GetCard();
-      c.Show(true);
-      a_player.DealCard(c);
-    
-      */
+
       giveUserCardShow (a_player);
-	  
       
       return true;
     }
@@ -73,14 +61,8 @@ public class Dealer extends Player {
 		  // Give game control to the dealer
 		  
 		  while (m_hitRule.DoHit(this)){
-			
 			  
 			  giveUserCardShow (this);
-		     /* Card c;
-		      c = m_deck.GetCard();
-		      c.Show(true);
-
-		      this.DealCard(c); */
 		      
 		  }
 		  

@@ -80,18 +80,4 @@ public class Player {
     return score;
   }
   
-  public boolean hasOnlyOneAce()
-  {
- 
-    int count = 0;
-
-    for(Card c : GetHand()) {
-        if (c.GetValue() == Card.Value.Ace) count++;
-    }
-
-    if (count == 1) return true;
-    else return false;
-
-  }  
-  
 }

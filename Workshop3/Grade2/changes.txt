@@ -1,0 +1,8 @@
+NO one spotted the things I left in the UML diagram so they were corrected.
+Added some more Air around the classes, hopefully it looks better now.
+
+The Observer issues was nicely spotted, I restored the code to take care of it. 
+Actually what I left was a register everytime the Play method was called.
+
+Regarding the Soft17 I think the implementation was correct (I might be wrong as I don't play cards). 
+Though I moved the code from player into Sof17HitStrategy to make the rule clearer. 

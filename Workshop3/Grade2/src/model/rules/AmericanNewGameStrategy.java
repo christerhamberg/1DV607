@@ -21,27 +21,6 @@ class AmericanNewGameStrategy implements INewGameStrategy {
 	  // Dealer second card = HIDDEN
 	  a_dealer.giveUserCardHide (a_dealer);
 
-		  /*
-	      Card c;
-
-          c = a_deck.GetCard();
-          c.Show(true);
-          a_player.DealCard(c);
-
-          c = a_deck.GetCard();
-          c.Show(true);
-          a_dealer.DealCard(c);
-    
-          c = a_deck.GetCard();
-          c.Show(true);
-          a_player.DealCard(c);
-
-          c = a_deck.GetCard();
-          c.Show(false);
-          a_dealer.DealCard(c);
-    
-          */
-    
 
 	  return true;
   }

@@ -28,7 +28,7 @@ public class Observer {
 
 			PlayGame obj = subscriber.get(loopMe);
 			obj.newCardEvent();
-						
+
 		}
 	}
 	
