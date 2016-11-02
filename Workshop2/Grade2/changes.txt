@@ -1,3 +1,14 @@
+Grade 3
+
+Changed socialSecurityID from int to long
+Added usecase search
+Added Authentication username = id password = secret + id i.e. if id = '1' password = secret1 id = 2 password = secret2 and so on
+Already this is hurting my sense of IS/IT security storing them to a file is a no way, in that case 
+we should implement the full IDM instead!
+
+
+
+
 Changes after Johan H's comment:
 
 Boat allocation and interworking moved from CacheStorage to Member as it violates the Information Expert pattern. 
@@ -25,7 +36,7 @@ Main changes.
 - CacheStorage renamed to MemberFacade as it is no longer a cache.
 - FileStorage implementation slightly modified to make it look more like a singleton
 - Iteration changed due to moving Boat under Member
-- The ugly CLI was a bit cleaned up in regard to the printouts. The new once should not hurt the eye as much as the old once.
+- The ugly CLI was a bit cleaned up in regard to the printouts. The new once should not hurt the eye as much as the old.
 
 
 
