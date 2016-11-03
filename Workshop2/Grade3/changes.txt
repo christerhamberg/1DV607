@@ -1,0 +1,27 @@
+Grade 3
+
+- Changed socialSecurityID from int to long
+- Added usecase search
+  Implemented searches are boattype, bornmonth and name
+  I did not implement age as there was no need to implement all of them
+- Added Authentication username = id password = secret + id i.e. if id = '1' password = secret1 id = 2 password = secret2 and so on
+  Already this is hurting my sense of IS/IT security storing them to a file is a no way, in that case 
+  we should implement the full IDM instead!
+- Added a super user 0/super to be able to setup the first member(s)
+- There is no requirment on what a logged in user can not do, hence all users can edit any user after they are logged in
+  in a real case this should be locked so that the user can only edit its own data.
+
+  As there are no requirments on this, the user once logedin is the same as a super user
+
+- Added a better example file with a few users
+
+Considerations for improvements:
+
+- Validation and chopping the search string should be allocated to the same class, 
+  to make sure that they are implemented at the same time in the same way.
+  (REFACTORED!) by letting the search facade SearchFilterFacade extend the 
+  validator class SearchStringValidatorExtractor.
+
+
+- Refactoring of the View package is probably a good option as it is not a nice class at the moment.
+  (NOT REFACTORED) But considered in the implementation of GRADE4

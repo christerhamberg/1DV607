@@ -76,8 +76,8 @@ public class MemberFacade implements MemberFacadeInterface{
 		
 	}
 	
-	public void initMemeber (int id, String name, int intSocSecId){
-		Member mb = new Member (id,name,intSocSecId);
+	public void initMemeber (int id, String name, long longSocSecId){
+		Member mb = new Member (id,name,longSocSecId);
 		memberData.put (id,mb);
 		
 		
@@ -85,8 +85,7 @@ public class MemberFacade implements MemberFacadeInterface{
 	
 	public void initBoat (int id, String type, double length){
 		
-	    Member memberObject = memberData.get(id);
-
+	    Member memberObject = memberData.get(id);	    
 	    memberObject.initNewBoat (type, length);
 		
     }

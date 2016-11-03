@@ -9,7 +9,7 @@ import model.Member;
 import model.MemberFacadeInterface;
 import model.authentication.Authentication;
 import searchfilter.SearchFilterFacade;
-import searchfilter.SearchStringValidator;
+import searchfilter.SearchStringValidatorExtractor;
 import view.UIInterface;
 
 public class YachtClubController {
@@ -483,7 +483,7 @@ public class YachtClubController {
 		
 		if (searchString != null){
 			
-			SearchStringValidator validateString = new  SearchStringValidator();
+			SearchFilterFacade validateString = new  SearchFilterFacade();
 			if (validateString.validateSearchString (searchString) == false) ui.displayIncorrectSearchString (searchString);
 			
 			SearchFilterFacade searchMain = new SearchFilterFacade();
@@ -493,7 +493,8 @@ public class YachtClubController {
 			// LIST RESULT
 			
     		ui.searchResultStart ();
-    		
+    		ui.displaySearchHeading ();
+
     		if (searchResult != null){
     			for (int loopMe=0;searchResult.size()>loopMe;loopMe++){
     				

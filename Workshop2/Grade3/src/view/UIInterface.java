@@ -77,6 +77,7 @@ public interface UIInterface {
 	// Search results
 	public void searchResultStart ();
 	public void searchResultEnd ();
+	public void displaySearchHeading();
 	
 
 }

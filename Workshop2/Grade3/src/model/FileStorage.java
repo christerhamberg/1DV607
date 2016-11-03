@@ -120,7 +120,7 @@ public class FileStorage {
 					
 							String splitter[] = data.split(";");
 							int id = Integer.parseInt (splitter[0]);
-							int persNo= Integer.parseInt (splitter[2]);
+							long persNo= Long.parseLong (splitter[2]);
 						
 							rebuildCache.initMemeber(id, splitter[1], persNo);
 					

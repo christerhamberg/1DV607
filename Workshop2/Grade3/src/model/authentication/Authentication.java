@@ -26,6 +26,14 @@ public class Authentication {
 			return false;
 		}
 		
+		// NOTE! A SUPER USER IS NEEDED TO SETUP THE FIRST MEMBER ETC.
+		
+		if (id == 0){
+			if (password.compareTo("super") == 0) return true;
+			else return false;
+		}
+		
+		
 		// check if it is a valid userId
 		
 		if (memFacade.isMemberKeyValid(id) == false) return false;

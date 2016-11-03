@@ -7,7 +7,7 @@ import java.util.Set;
 import model.Member;
 import model.MemberFacadeInterface;
 
-public class SearchFilterFacade {
+public class SearchFilterFacade extends SearchStringValidatorExtractor{
 		
 	public SearchFilterFacade (){
 		
@@ -74,41 +74,6 @@ public class SearchFilterFacade {
 		
 	}
 	
-	private String isName (String searchString){
-		
-		if (searchString.startsWith("name=") == true){
-			
-			if (searchString.endsWith("*") == true) return searchString.substring(5, searchString.length()-1);				
-			else if (searchString.contains("*") == false) return searchString.substring(5, searchString.length());
-			
-		}
-		
-		return null;
-		
-	}
-	
-	private String isBoatType (String searchString){
-		
-		if (searchString.startsWith("boattype=") == true){
 
-		   return searchString.substring(9, searchString.length());
-		
-	    }
-
-		return null;
-		
-    }
-	
-	private String isBornMonth (String searchString){
-		
-		if (searchString.startsWith("bornmonth=") == true){
-
-		   return searchString.substring(10, searchString.length());
-		
-	    }
-
-		return null;
-		
-    }
 		
 }

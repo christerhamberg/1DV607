@@ -441,16 +441,29 @@ public class UI implements UIInterface{
 	public void searchResultStart() {
 		
 		System.out.print ("\n\n\nSearch Result");
-		System.out.print ("\n--------------------------------------");
+		System.out.print ("\n----------------------------------------------------------------------");		
 
 	}
 
 	@Override
 	public void searchResultEnd() {
 		
-		System.out.print ("\n--------------------------------------\n\n\n");		
+		System.out.print ("\n----------------------------------------------------------------------\n\n\n");		
 		System.out.print ("\nSearch Result End");
 
+	}
+	
+	public void displaySearchHeading (){
+		
+		String writeString = "\nID";
+		while (MEMBER_SPACE_NAME> writeString.length()) writeString = writeString + " ";			
+		writeString = writeString + " NAME";
+		while (MEMBER_SPACE_NOOFBOATS> writeString.length()) writeString = writeString + " ";
+		writeString = writeString + " BOATS";
+		while (MEMBER_SPACE_SOCIALSECID> writeString.length()) writeString = writeString + " ";
+		writeString = writeString + " SOCIAL SECURITY ID";		
+		System.out.print(writeString);
+		
 	}
 
 	
