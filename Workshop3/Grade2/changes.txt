@@ -1,4 +1,4 @@
-NO one spotted the things I left in the UML diagram so they were corrected.
+No one spotted the things I left in the UML diagram so they were corrected.
 Added some more Air around the classes, hopefully it looks better now.
 
 The Observer issues was nicely spotted, I restored the code to take care of it. 
