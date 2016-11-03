@@ -1,4 +1,5 @@
 Grade 3
+-----------------------------------------------------------------------------
 
 - Changed socialSecurityID from int to long
 - Added usecase search
@@ -15,7 +16,9 @@ Grade 3
 
 - Added a better example file with a few users
 
-Considerations for improvements:
+- The selection option is only done for Display Member, I assume that this should be added to all options where applicable
+  and it will be done like that in grade4. I opt to leave this undone in grade 3 to be able to show how I think the 
+  refactoring on the code should be done.
 
 - Validation and chopping the search string should be allocated to the same class, 
   to make sure that they are implemented at the same time in the same way.
@@ -23,5 +26,13 @@ Considerations for improvements:
   validator class SearchStringValidatorExtractor.
 
 
+Considerations for improvements at this stage:
+-------------------------------------------------------
+
 - Refactoring of the View package is probably a good option as it is not a nice class at the moment.
-  (NOT REFACTORED) But considered in the implementation of GRADE4
+  (NOT REFACTORED) But considered in the implementation of GRADE4. If this is not okay for grade3 let me know and I
+  will copy paste the grade4 solution here as well.
+
+- Refactor the selected filter option from Grade3, and apply the refactored solution to the rest of the options!
+
+- Selection of data from menues etc. starts to become copy paste needs refactoring.

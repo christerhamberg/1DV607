@@ -20,6 +20,10 @@ public class SearchStringValidatorExtractor {
 			
 			if (validateAge(searchString) == false) return false;
 			
+			// THIS PATTERN IS NOT IMPLEMENTED 
+			// BY DEFAULT RETURN false
+			return false;
+			
 		}
 		
 		// validate pattern bornmonth
@@ -50,26 +54,9 @@ public class SearchStringValidatorExtractor {
 	
 	private boolean validateAge (String searchString){
 		
-		// check that yyy is a digit 0-116 (1900->2016 = max age is 116)
-		// this is a hardcoded limit that could be removed in a refactoring :)
-		// only need to check year from the system clock and take systemclock - 1900
 		
-		if (searchString.length()>4 && searchString.length()<8){
-			
-			try {
-				int value = Integer.parseInt(searchString.substring(4, searchString.length()));
-				
-				if (value<0 || value> 116) return false;
-			
-			}
-			catch (NumberFormatException e){
-				return false;
-			}
-			
-			return true;
-			
-		}
-		else return false;
+		// PATTERN IS NOT IMPLEMENTED
+		return false;
 		
 	}
 	

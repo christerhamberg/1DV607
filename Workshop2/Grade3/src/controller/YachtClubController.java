@@ -151,35 +151,102 @@ public class YachtClubController {
 		
 		// 2. Display Select Member (Update)
 		
-		ui.displayMemberMenuDisplay();
+		ui.displayMemberMenuDisplayFilter();
 		
 		// 3. Select member 
 		
 		int key = ui.selectMenu();
-        if (key != Character.getNumericValue('q')){ 
-        	
-        	// 4. Check if the key is valid
-        	
-        	if (memFacade.isMemberKeyValid(key) == true){
-        		
-        		// 5. Display Data for the Member
-        		
-        		ui.displaySingleMemberHeading();
-        		
-    			ui.displayMemberObject(memFacade.getMemberId (key), memFacade.getMemberName (key),  memFacade.getMemberPersonalNumber (key), memFacade.getMemberNoOfBoats(key));
 
-        		// 6. Get number of owned boats
-        		
-        		int boats = memFacade.getMemberNoOfBoats(key);
-        		
-        		for (int loopMe = 1;boats>=loopMe;loopMe++){
-        			
-    				ui.displayVerboseObjectBoat (loopMe,memFacade.getMemberBoatType (key,loopMe),memFacade.getMemberBoatLength (key,loopMe));
-        			
-        		}
+		if (key != Character.getNumericValue('q')){ 
+        	
+        	// ADD FILTER OPTION
+        	if (key == Character.getNumericValue('f')){
+                		
+        		// Display search options
+        		String searchString = ui.getFilterString();
         		        		
-        	}
-        	else ui.displayOpResult (ECODE900);
+        		if (searchString == null) key = -1;
+        		else if (searchString.compareToIgnoreCase("q") == 0) key = -1;
+        		else {
+        			        	        			
+        			SearchFilterFacade validateString = new  SearchFilterFacade();
+        			if (validateString.validateSearchString (searchString) == false) ui.displayIncorrectSearchString (searchString);
+
+        			else {
+        				SearchFilterFacade searchMain = new SearchFilterFacade();
+        				
+        				ArrayList <Member> searchResult = searchMain.filterResult (memFacade, searchString);
+        			        				
+            			if (searchResult == null) key = -1;
+            			else if (searchResult.isEmpty() == true) key = -1;
+            			else {
+            				for (int loopMe=0;searchResult.size()>loopMe;loopMe++){
+            				
+            					Member mb = searchResult.get(loopMe);
+            				
+            			   		int id = mb.getId();
+            			   		String name = mb.getName();
+            			   		long socialId = mb.getPersonalNumber(); 
+            			   		int noOfBoats = mb.getNoOfBoats();
+            				
+            			   		ui.displayMemberObject(id,name,socialId,noOfBoats);
+            				
+               				}
+            				
+            				ui.displayMemberMenuDisplay();
+            				key = ui.selectMenu();
+
+            				if (key == Character.getNumericValue('q')) key = -1;
+            				else {
+            					boolean validated = false;
+            					for (int loopMe=0;searchResult.size()>loopMe;loopMe++){
+            						Member mb = searchResult.get(loopMe);
+                				
+            			   			int id = mb.getId();
+            			   		
+            			   			if (key == id){
+            			   				validated = true;
+            			   				break;
+            			   			}
+            				
+            					}
+            					            				
+            					if (validated == false) key = -1;
+            					
+            				}
+            			}
+
+        			}
+        		}
+
+          	}
+        	
+            if (key != -1){ 
+
+        
+            	// 4. Check if the key is valid
+        	
+            	if (memFacade.isMemberKeyValid(key) == true){
+        		
+        			// 5. Display Data for the Member
+        		
+        			ui.displaySingleMemberHeading();
+        		
+    				ui.displayMemberObject(memFacade.getMemberId (key), memFacade.getMemberName (key),  memFacade.getMemberPersonalNumber (key), memFacade.getMemberNoOfBoats(key));
+
+        			// 6. Get number of owned boats
+        		
+        			int boats = memFacade.getMemberNoOfBoats(key);
+        		
+        			for (int loopMe = 1;boats>=loopMe;loopMe++){
+        			
+    					ui.displayVerboseObjectBoat (key,loopMe,memFacade.getMemberBoatType (key,loopMe),memFacade.getMemberBoatLength (key,loopMe));
+        			
+        			}
+        		        		
+        		}
+        		else ui.displayOpResult (ECODE900);
+            }
         
         }
         else ui.displayOpExit ();  // exit was selected
@@ -496,30 +563,29 @@ public class YachtClubController {
     		ui.displaySearchHeading ();
 
     		if (searchResult != null){
-    			for (int loopMe=0;searchResult.size()>loopMe;loopMe++){
+    			if (searchResult.isEmpty() == false){
+    			   for (int loopMe=0;searchResult.size()>loopMe;loopMe++){
     				
-    				Member mb = searchResult.get(loopMe);
+    				   Member mb = searchResult.get(loopMe);
     				
-    				int id = mb.getId();
-    				String name = mb.getName();
-    				long socialId = mb.getPersonalNumber(); 
-    				int noOfBoats = mb.getNoOfBoats();
+    				   int id = mb.getId();
+    				   String name = mb.getName();
+    				   long socialId = mb.getPersonalNumber(); 
+    				   int noOfBoats = mb.getNoOfBoats();
     				
-    				ui.displayMemberObject(id,name,socialId,noOfBoats);
+    				   ui.displayMemberObject(id,name,socialId,noOfBoats);
     				
+       			   }
+    				   
     			}
     		}
 
-    		ui.searchResultEnd ();
-
-			// REMOVE THIS ELSE IT IS ONLY FOR DEBUGGING
-			//else System.out.print("\nDEBUG : Pattern OK!");
-
 		}
 		
-		
-		
 	}
+	
+	
+	
 	
 	
 	

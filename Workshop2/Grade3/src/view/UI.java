@@ -66,6 +66,10 @@ public class UI implements UIInterface{
 	public void displayMemberMenuDisplay (){
 		System.out.print("\nSelect Member to display or 'q' to quit : ");
 	}
+
+	public void displayMemberMenuDisplayFilter (){
+		System.out.print("\nSelect Member to display or 'q' to quit or 'f' to first filter the list : ");
+	}
 	
 	public void displayMemberMenuCreateBoat (){
 		System.out.print("\nSelect Member whom to register a new boat : ");
@@ -94,6 +98,7 @@ public class UI implements UIInterface{
 
 		if (selection.compareToIgnoreCase("q") == 0) return Character.getNumericValue('q');
 		else if (selection.compareToIgnoreCase("s") == 0) return Character.getNumericValue('s');
+		else if (selection.compareToIgnoreCase("f") == 0) return Character.getNumericValue('f');
 		else{
 			try {
 				return Integer.parseInt (selection);
@@ -202,6 +207,21 @@ public class UI implements UIInterface{
 		System.out.print ("\nExample 3 : boattype=xxxx, boattype=sailboat finds users with sailboats");
 
 		System.out.print("\nEnter search pattern : ");
+		
+		return getKbSelection();
+		
+	}
+	
+	public String getFilterString (){
+		
+		System.out.print ("\nValid filter options name=xxx*, age=<>YYYY, bornmonth=MM, boattype=TYPE");
+		System.out.print ("\nExample 1 : name=and* finds anders,andreas,...");
+		System.out.print ("\nExample 2 : bornmonth=mm, bornmonth=12 finds users born in December");
+		System.out.print ("\nExample 3 : boattype=xxxx, boattype=sailboat finds users with sailboats");
+		System.out.print ("\nOr 'q' to quit");
+
+		
+		System.out.print("\nEnter filter pattern : ");
 		
 		return getKbSelection();
 		
@@ -465,6 +485,7 @@ public class UI implements UIInterface{
 		System.out.print(writeString);
 		
 	}
+	
 
 	
 	

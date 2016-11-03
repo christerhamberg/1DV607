@@ -78,6 +78,8 @@ public interface UIInterface {
 	public void searchResultStart ();
 	public void searchResultEnd ();
 	public void displaySearchHeading();
+	public void displayMemberMenuDisplayFilter();
+	public String getFilterString();
 	
 
 }
