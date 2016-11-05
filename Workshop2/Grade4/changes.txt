@@ -1,0 +1,25 @@
+Grade 4
+-----------------------------------------------------------------------------
+
+- Refactoring of the controller class has been done
+  Each use case is moved to its own use case with a common class that handles a few common functions
+  Member filter option added to those functions that needs it
+
+- Exposing Member to a lot of classes to implify the search handling compare to Grade 3
+  One comment here, the use of a hasmap is not really that good anymore and it would make sence to
+  refactor the code in Member to change it to someother type. As exposing the Member class reduces the need
+  to pass a hashkey. Hashkey made sense in the original design but not that much any more.
+
+- Adding error code mapper
+
+- Refactoring of the search option now multiple searches can be made
+  by either applying an AND/OR option or by filtering the list a search at the time.
+  AND / OR option only support the following kind of search xxx AND yyy , xxx OR yyy , xxx AND yyy (then a more specifc result can be applied on the previous search by either adding OR or AND)
+  '(' and ')' is not a part of the implementaion. And it is built from left to right, i.e. parsing of the search string is minimal.
+
+- Corrected some bugs in Grade3 
+	(Social security ID was not changed to long in all places
+	some null string corrections have been made.
+
+- Refactoring parts of the UI class.
+	Added a basic Error pusher, which could be converted into an observer if needed.

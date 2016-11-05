@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -15,6 +16,8 @@ public class MemberFacade implements MemberFacadeInterface{
 	private int ECODE105 = 105;  // Failed to update boat 
 	//private int ECODE106 = 106;  // Incorrect Social Security Number 
 
+	
+	
 	private Map <Integer,Member> memberData = new HashMap <Integer,Member> ();
 	
 	private FileStorage file;
@@ -146,7 +149,7 @@ public class MemberFacade implements MemberFacadeInterface{
 	
 	public int updateMember (int key, String name, String socSecId){
 		
-		long intSocSecId;
+		long longSocSecId;
 		
 	    try {
 			longSocSecId = Long.parseLong (socSecId);
@@ -324,4 +327,22 @@ public class MemberFacade implements MemberFacadeInterface{
     	
     }
 	
+    public ArrayList <Member> getAllMembers (){
+    	
+		Set <Integer> hashKeys = getHashKeysToAllMembers ();
+		Iterator<Integer> iter = hashKeys.iterator();
+    
+		ArrayList <Member> allMembers = new ArrayList <Member> ();
+		
+        while (iter.hasNext() == true){
+        	
+        	Member mb = memberData.get(iter.next());
+        	allMembers.add (mb);
+        }
+        
+        if (allMembers.isEmpty () == true) return null;
+        else return allMembers;
+        	
+    }
+    
 }
